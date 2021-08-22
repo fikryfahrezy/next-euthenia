@@ -1,0 +1,50 @@
+.cursorOne,
+.cursorTwo,
+.cursorThree {
+  position: fixed;
+  border-radius: 50%;
+  left: -100px;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  pointer-events: none;
+}
+
+.cursor {
+  position: fixed;
+  left: -100px;
+  top: 50%;
+  z-index: 3;
+  transition: transform 0.5s, opacity 0.5s;
+  pointer-events: none;
+}
+
+.cursorOne {
+  height: 0;
+  width: 0;
+  background-color: #fff;
+}
+
+.cursorTwo {
+  border: 2px solid #fff;
+  box-shadow: 0 0 22px rgb(255 255 255 / 60%);
+}
+
+.cursorTwo,
+.cursorThree {
+  height: 36px;
+  width: 36px;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.cursorHover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 12px rgb(255 255 255 / 20%);
+}
+
+.cursorHover,
+.cursorHoverBg {
+  -webkit-transform: scale(2) translateX(-25%) translateY(-25%);
+  transform: scale(2) translateX(-25%) translateY(-25%);
+  border: none;
+}

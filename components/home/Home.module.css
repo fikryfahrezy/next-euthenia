@@ -1,0 +1,129 @@
+.sliderContainer {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+  cursor: grab;
+}
+
+.sliderWrapper {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: grab;
+  list-style: none;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.sliderSlide {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+.sliderFreeMode {
+  -webkit-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  margin: 0 auto;
+}
+
+.sliderList {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  width: auto;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  float: left;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  cursor: grab;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  transition: all 250ms linear;
+}
+
+.sliderAnchor {
+  margin: 0 100px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sliderTitle {
+  position: relative;
+  width: 100%;
+  padding: 0 5px;
+  color: #fff;
+  font-size: 60px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+.sliderList:hover .sliderTitle {
+  opacity: 1;
+}
+
+.sliderTitle::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  height: 0;
+  bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+.sliderList:hover .sliderTitle:before {
+  opacity: 1;
+  height: 20px;
+}
+
+.sliderNameTitle {
+  opacity: 0.6;
+  -webkit-transition: all 200ms linear;
+  transition: all 200ms linear;
+}
+
+.cursorIcon {
+  cursor: url('/img/grabbing.png') 28 15, grabbing;
+}

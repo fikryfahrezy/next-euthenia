@@ -1,0 +1,25 @@
+.overHide {
+  overflow: hidden;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.animsition {
+  height: 100%;
+  position: relative;
+  -webkit-animation-fill-mode: both;
+  animation: showin 400ms;
+  animation-fill-mode: both;
+}
+
+@keyframes showin {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
