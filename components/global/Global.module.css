@@ -1,15 +1,13 @@
 .overHide {
   overflow: hidden;
-  height: 100vh;
-  max-height: 100vh;
+  background-color: #1f2029;
 }
 
 .animsition {
   height: 100%;
   position: relative;
-  -webkit-animation-fill-mode: both;
-  animation: showin 400ms;
   animation-fill-mode: both;
+  animation: showin 400ms;
 }
 
 @keyframes showin {

@@ -1,6 +1,10 @@
 import type { MouseEvent, ReactNode } from 'react';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CusrorContext } from '../../context/Cursor';
+import Header from './header';
+import Nav from './nav';
+import Socials from './socials';
+import Copyright from './copyright';
 import Cursor from './cursor';
 import cursorStyle from './cursor/Cursor.module.css';
 import style from './Global.module.css';
@@ -10,7 +14,12 @@ type GlobalProps = {
 };
 
 const Global = ({ children }: GlobalProps) => {
+  const [isNavOpen, setNavOpen] = useState(false);
   const cursorRef = useContext(CusrorContext);
+
+  const toggleNav = function toggleNav() {
+    setNavOpen(!isNavOpen);
+  };
 
   const mouseMove = function mouseMove(
     e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>,
@@ -40,7 +49,11 @@ const Global = ({ children }: GlobalProps) => {
   return (
     <div className={style.overHide} onMouseMove={mouseMove}>
       <div className={style.animsition}>
+        <Header toggleNav={toggleNav} isActive={isNavOpen} />
+        <Nav isActive={isNavOpen} />
         {children}
+        <Socials />
+        <Copyright />
         <Cursor ref={cursorRef?.ref} />
       </div>
     </div>

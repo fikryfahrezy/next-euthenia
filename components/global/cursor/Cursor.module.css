@@ -13,7 +13,7 @@
   position: fixed;
   left: -100px;
   top: 50%;
-  z-index: 3;
+  z-index: 4;
   transition: transform 0.5s, opacity 0.5s;
   pointer-events: none;
 }
@@ -33,7 +33,6 @@
 .cursorThree {
   height: 36px;
   width: 36px;
-  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
 
@@ -44,7 +43,6 @@
 
 .cursorHover,
 .cursorHoverBg {
-  -webkit-transform: scale(2) translateX(-25%) translateY(-25%);
   transform: scale(2) translateX(-25%) translateY(-25%);
   border: none;
 }

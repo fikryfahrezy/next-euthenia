@@ -4,10 +4,8 @@
   padding-left: 5px;
   padding-right: 5px;
   color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
   cursor: pointer;
   overflow: hidden;
-  -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
 }
 
@@ -21,7 +19,6 @@
   opacity: 0;
   margin-top: 3px;
   background-color: rgba(255, 255, 255, 0.2);
-  -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
 }
 
@@ -43,7 +40,6 @@
   padding: 0;
   margin: 0;
   margin-bottom: 20px;
-  -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
 }
 
@@ -66,13 +62,11 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 15px;
-  text-decoration: none;
   text-align: center;
   line-height: 22px;
   letter-spacing: 2px;
   overflow: hidden;
   cursor: pointer;
-  -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
 }
 
