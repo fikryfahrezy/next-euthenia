@@ -4,7 +4,6 @@
 }
 
 .animsition {
-  height: 100%;
   position: relative;
   animation-fill-mode: both;
   animation: showin 400ms;

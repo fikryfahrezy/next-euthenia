@@ -46,3 +46,7 @@
   transform: scale(2) translateX(-25%) translateY(-25%);
   border: none;
 }
+
+.cursorGone {
+  opacity: 0;
+}

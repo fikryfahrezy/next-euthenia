@@ -169,9 +169,9 @@ const Home = () => {
           </SwiperSlide>
         </Swiper>
         <div ref={sliderScrollbar} className={style.sliderScrollbar}>
-          <div
+          <button
             className={`swiper-scrollbar-drag ${style.sliderScrollbarBtn}`}
-          ></div>
+          ></button>
         </div>
       </main>
       <ul className={style.bgPage}>

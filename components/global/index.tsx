@@ -43,6 +43,14 @@ const Global = ({ children }: GlobalProps) => {
         cursorTwo?.classList.remove(cursorStyle.cursorHover);
         cursorThree?.classList.remove(cursorStyle.cursorHoverBg);
       }
+
+      if (target.classList.contains('video-target')) {
+        cursorTwo?.classList.add(cursorStyle.cursorGone);
+        cursorThree?.classList.add(cursorStyle.cursorGone);
+      } else {
+        cursorTwo?.classList.remove(cursorStyle.cursorGone);
+        cursorThree?.classList.remove(cursorStyle.cursorGone);
+      }
     }
   };
 
