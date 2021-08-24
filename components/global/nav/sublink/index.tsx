@@ -41,7 +41,7 @@ const Sublink = ({ isSubAvailable }: SublinkProps) => {
             </Link>
           </li>
           <li className={`${style.subLinkList}`}>
-            <Link href="/">
+            <Link href="/work/masonry">
               <a className={`hover-target ${style.subLinkAnchor}`}>
                 masonry version
               </a>
