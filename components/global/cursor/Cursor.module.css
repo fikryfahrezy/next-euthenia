@@ -35,18 +35,3 @@
   width: 36px;
   transition: all 0.3s ease-out;
 }
-
-.cursorHover {
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 12px rgb(255 255 255 / 20%);
-}
-
-.cursorHover,
-.cursorHoverBg {
-  transform: scale(2) translateX(-25%) translateY(-25%);
-  border: none;
-}
-
-.cursorGone {
-  opacity: 0;
-}

@@ -1,5 +1,5 @@
 import type { MouseEvent, ReactNode } from 'react';
-import { useContext, useState } from 'react';
+import { useEffect, useRef, useContext, useState } from 'react';
 import { CusrorContext } from '../../context/Cursor';
 import Header from './header';
 import Nav from './nav';
@@ -15,7 +15,10 @@ type GlobalProps = {
 
 const Global = ({ children }: GlobalProps) => {
   const [isNavOpen, setNavOpen] = useState(false);
-  const cursorRef = useContext(CusrorContext);
+  const { cursorRef } = useContext(CusrorContext);
+  const header = useRef<HTMLElement>(null);
+  const isMounted = useRef(false);
+  const lastScrTop = useRef(0);
 
   const toggleNav = function toggleNav() {
     setNavOpen(!isNavOpen);
@@ -26,22 +29,22 @@ const Global = ({ children }: GlobalProps) => {
   ) {
     const target = e.target as HTMLElement;
 
-    if (cursorRef?.ref.current) {
-      cursorRef.ref.current.style.left = '0';
-      cursorRef.ref.current.style.top = '0';
-      cursorRef.ref.current.style.transform = `
+    if (cursorRef?.current) {
+      cursorRef.current.style.left = '0';
+      cursorRef.current.style.top = '0';
+      cursorRef.current.style.transform = `
         translate(${e.clientX + 100}px, ${e.clientY}px)
         `;
 
-      const cursorTwo = cursorRef.ref.current.querySelector('.cursor-two');
-      const cursorThree = cursorRef.ref.current.querySelector('.cursor-three');
+      const cursorTwo = cursorRef.current.querySelector('.cursor-two');
+      const cursorThree = cursorRef.current.querySelector('.cursor-three');
 
       if (target.classList.contains('hover-target')) {
-        cursorTwo?.classList.add(cursorStyle.cursorHover);
-        cursorThree?.classList.add(cursorStyle.cursorHoverBg);
+        cursorTwo?.classList.add(style.cursorHover);
+        cursorThree?.classList.add(style.cursorHoverBg);
       } else {
-        cursorTwo?.classList.remove(cursorStyle.cursorHover);
-        cursorThree?.classList.remove(cursorStyle.cursorHoverBg);
+        cursorTwo?.classList.remove(style.cursorHover);
+        cursorThree?.classList.remove(style.cursorHoverBg);
       }
 
       if (target.classList.contains('video-target')) {
@@ -54,15 +57,52 @@ const Global = ({ children }: GlobalProps) => {
     }
   };
 
+  const trackScroll = function trackScroll() {
+    if (isMounted.current) {
+      const scrolled = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+
+      if (header.current) {
+        if (scrolled > header.current.offsetHeight)
+          header.current.classList.add(style.headerFix);
+        else header.current.classList.remove(style.headerFix);
+
+        /**
+         * Ref: Detecting scroll direction
+         * https://stackoverflow.com/questions/31223341/detecting-scroll-direction
+         */
+        // downscroll code
+        if (scrolled > lastScrTop.current)
+          header.current.classList.remove(style.headerVisible);
+        // upscroll code
+        else header.current.classList.add(style.headerVisible);
+      }
+
+      lastScrTop.current = scrolled <= 0 ? 0 : scrolled; // For Mobile or negative scrolling
+    }
+  };
+
+  useEffect(() => {
+    isMounted.current = true;
+
+    // NOTE: Window object in React
+    // https://stackoverflow.com/questions/37081803/how-do-i-use-the-window-object-in-reactjs
+    window.addEventListener('scroll', trackScroll);
+
+    return () => {
+      isMounted.current = false;
+      window.removeEventListener('scroll', trackScroll);
+    };
+  }, []);
+
   return (
     <div className={style.overHide} onMouseMove={mouseMove}>
       <div className={style.animsition}>
-        <Header toggleNav={toggleNav} isActive={isNavOpen} />
+        <Header ref={header} toggleNav={toggleNav} isActive={isNavOpen} />
         <Nav isActive={isNavOpen} />
         {children}
         <Socials />
         <Copyright />
-        <Cursor ref={cursorRef?.ref} />
+        <Cursor ref={cursorRef} />
       </div>
     </div>
   );

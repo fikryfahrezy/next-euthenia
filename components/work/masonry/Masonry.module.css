@@ -104,12 +104,6 @@
   color: #fff;
 }
 
-.filterBtn:hover::before {
-  bottom: -4px;
-  opacity: 1;
-  visibility: visible;
-}
-
 .filterBtn::before {
   content: '';
   position: absolute;
@@ -127,10 +121,11 @@
   color: #fff;
 }
 
+.filterBtn:hover::before,
 .filterBtn.currentFilterBtn::before {
-  bottom: -4px;
   opacity: 1;
   visibility: visible;
+  transform: translateY(-4px);
 }
 
 .masonryItem {

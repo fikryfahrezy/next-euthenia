@@ -1,52 +1,40 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import style from './Sublink.module.css';
 
 type SublinkProps = {
-  isSubAvailable: boolean;
+  isSublink: boolean;
+  link: string;
+  title: string;
+  sublink: { id: string; link: string; title: string }[];
 };
-const Sublink = ({ isSubAvailable }: SublinkProps) => {
+
+const Sublink = ({ isSublink, link, title, sublink }: SublinkProps) => {
+  const [linkActive] = useState(0);
+
   return (
     <>
-      <Link href="/">
-        <a className={`hover-target ${style.navAnchor}`}>work</a>
-      </Link>
-      {isSubAvailable && (
+      {isSublink ? (
+        <a className={`hover-target ${style.navAnchor}`}>{title}</a>
+      ) : (
+        <Link href={link}>
+          <a className={`hover-target ${style.navAnchor}`}>{title}</a>
+        </Link>
+      )}
+      {isSublink && (
         <ul className={style.subLink}>
-          <li className={`${style.subLinkList} ${style.activeSubList}`}>
-            <Link href="/">
-              <a className={`hover-target ${style.subLinkAnchor}`}>
-                slider centerd title
-              </a>
-            </Link>
-          </li>
-          <li className={`${style.subLinkList}`}>
-            <Link href="/">
-              <a className={`hover-target ${style.subLinkAnchor}`}>
-                slider centerd image
-              </a>
-            </Link>
-          </li>
-          <li className={`${style.subLinkList}`}>
-            <Link href="/">
-              <a className={`hover-target ${style.subLinkAnchor}`}>
-                slider bottom title
-              </a>
-            </Link>
-          </li>
-          <li className={`${style.subLinkList}`}>
-            <Link href="/">
-              <a className={`hover-target ${style.subLinkAnchor}`}>
-                slice revealer
-              </a>
-            </Link>
-          </li>
-          <li className={`${style.subLinkList}`}>
-            <Link href="/work/masonry">
-              <a className={`hover-target ${style.subLinkAnchor}`}>
-                masonry version
-              </a>
-            </Link>
-          </li>
+          {sublink.map(({ id, title, link }, i) => (
+            <li
+              key={id}
+              className={`${style.subLinkList} ${
+                i === linkActive ? style.activeSubList : ''
+              }`}
+            >
+              <Link href={link}>
+                <a className={`hover-target ${style.subLinkAnchor}`}>{title}</a>
+              </Link>
+            </li>
+          ))}
         </ul>
       )}
     </>

@@ -1,13 +1,9 @@
-import { useEffect, useState, forwardRef } from 'react';
-import { checkIsMobile } from '../../../utils';
+import { useContext, forwardRef } from 'react';
+import { CusrorContext } from '../../../context/Cursor';
 import style from './Cursor.module.css';
 
 const Cursor = forwardRef<HTMLDivElement | null, unknown>((_, cursorRef) => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(checkIsMobile());
-  }, []);
+  const { isMobile } = useContext(CusrorContext);
 
   return isMobile ? (
     <></>
