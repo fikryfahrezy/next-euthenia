@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import ArticleWrapper from '../wrapper/article';
+import FullArticleWrapper from '../wrapper/article/full';
 import FullimgWrapper from '../wrapper/fullimg';
 import FullparagraphWrapper from '../wrapper/fullparagraph';
 import style from './Project.module.css';
 
 const Project = () => {
   return (
-    <ArticleWrapper>
+    <FullArticleWrapper>
       <div className={style.pageContainer}>
         <div className={style.innerPageContainer}>
           <FullimgWrapper
@@ -103,7 +103,7 @@ const Project = () => {
           />
         </div>
       </div>
-    </ArticleWrapper>
+    </FullArticleWrapper>
   );
 };
 

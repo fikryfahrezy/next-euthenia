@@ -105,12 +105,12 @@
 .sliderTitle::before {
   position: absolute;
   content: '';
-  left: 0;
   height: 0;
+  width: 100%;
   bottom: 0px;
+  left: 0;
   background-color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  width: 100%;
   opacity: 0;
   transition: all 200ms linear;
 }
@@ -119,13 +119,13 @@
   opacity: 1;
 }
 
-.sliderActive .sliderTitle:before {
+.sliderActive .sliderTitle::before {
   opacity: 1;
   height: 20px;
 }
 
 @media (max-width: 1199px) {
-  .sliderActive .sliderTitle:before {
+  .sliderActive .sliderTitle::before {
     height: 10px;
   }
 }
@@ -211,15 +211,15 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   background-image: url('/img/1.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  top: 0;
-  left: 0;
   overflow: hidden;
-  list-style: none;
   opacity: 0;
+  list-style: none;
   transition: all 300ms linear;
   clip-path: none;
 }

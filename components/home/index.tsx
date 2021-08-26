@@ -13,53 +13,43 @@ SwiperCore.use([Mousewheel, Scrollbar]);
 const data = [
   {
     id: '1',
-    link: '/blog',
-    title: 'A',
+    link: '/project',
+    title: 'The Battle',
   },
   {
     id: '2',
-    link: '/blog',
-    title: 'B',
+    link: '/projectone',
+    title: 'Dark Dream',
   },
   {
     id: '3',
-    link: '/blog',
-    title: 'C',
+    link: '/project',
+    title: "L'Etoile Fev",
   },
   {
     id: '4',
-    link: '/blog',
-    title: 'D',
+    link: '/projectone',
+    title: 'Temp',
   },
   {
     id: '5',
-    link: '/blog',
-    title: 'E',
+    link: '/project',
+    title: 'Kresios',
   },
   {
     id: '6',
-    link: '/blog',
-    title: 'F',
+    link: '/projectone',
+    title: 'Hospitality',
   },
   {
     id: '7',
-    link: '/blog',
-    title: 'G',
+    link: '/project',
+    title: 'Processors',
   },
   {
     id: '8',
-    link: '/blog',
-    title: 'H',
-  },
-  {
-    id: '9',
-    link: '/blog',
-    title: 'I',
-  },
-  {
-    id: '10',
-    link: '/blog',
-    title: 'J',
+    link: '/projectone',
+    title: 'Mrsoet',
   },
 ];
 

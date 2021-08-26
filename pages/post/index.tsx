@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
-import Masonry from '../../../components/work/masonry';
+import Post from '../../components/post';
 
 const IndexPage: NextPage = () => {
-  return <Masonry />;
+  return <Post />;
 };
 
 export default IndexPage;

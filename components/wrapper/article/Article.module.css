@@ -197,14 +197,6 @@
   }
 }
 
-.mainContainer {
-  position: relative;
-  display: block;
-  width: 100%;
-  padding-bottom: 140px;
-  overflow: hidden;
-}
-
 .footerContainer {
   position: relative;
   display: block;
@@ -281,7 +273,7 @@
   background-color: #4b4d64;
 }
 
-.footerLines:before {
+.footerLines::before {
   bottom: -50px;
 }
 
