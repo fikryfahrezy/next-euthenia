@@ -1,5 +1,10 @@
 import FullArticleWrapper from '../wrapper/article/full';
+import Select from '../form/select';
+import Input from '../form/input';
+import Textarea from '../form/textarea';
+import Button from '../form/button';
 import style from './Contact.module.css';
+import components from './components';
 
 const Contact = () => {
   return (
@@ -9,132 +14,43 @@ const Contact = () => {
           <div className={style.innerContainer}>
             <div className={style.formContainer}>
               <div className={style.form}>
-                <div className={style.inputContainer}>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name: *"
-                    autoComplete="off"
-                    className={`hover-target ${style.input}`}
-                  />
-                </div>
-                <div className={style.inputContainer}>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="E-Mail: *"
-                    autoComplete="off"
-                    className={`hover-target ${style.input}`}
-                  />
-                </div>
-                <div className={style.inputContainer}>
-                  <input
-                    type="tel"
-                    name="tel"
-                    placeholder="Phone Number:"
-                    autoComplete="off"
-                    className={`hover-target ${style.input}`}
-                  />
-                </div>
-                <div className={style.inputContainer}>
-                  <input
-                    type="text"
-                    name="location"
-                    placeholder="City, Country:"
-                    autoComplete="off"
-                    className={`hover-target ${style.input}`}
-                  />
-                </div>
-                <div className={style.inputContainer}>
-                  <select name="budget" className={style.selection}>
-                    <option>Budget</option>
-                    <option value="1">$2000 - $5000</option>
-                    <option value="2">$5000 - $10000</option>
-                    <option value="3">$10000 - $25000</option>
-                    <option value="4">$25000 - $50000</option>
-                    <option value="5">$50000 and up</option>
-                  </select>
-                  <div tabIndex={0} className={style.selectView}>
-                    <span>Budget</span>
-                    <ul className={style.selectList}>
-                      <li
-                        className={`${style.selectOption} ${style.currentSelect} ${style.currentFocus}`}
-                      >
-                        Budget
-                      </li>
-                      <li className={`${style.selectOption}`}>$2000 - $5000</li>
-                      <li className={`${style.selectOption}`}>
-                        $5000 - $10000
-                      </li>
-                      <li className={`${style.selectOption}`}>
-                        $10000 - $25000
-                      </li>
-                      <li className={`${style.selectOption}`}>
-                        $25000 - $50000
-                      </li>
-                      <li className={`${style.selectOption}`}>$50000 and up</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className={style.inputContainer}>
-                  <select name="intrested" className={style.selection}>
-                    <option>Intrested For</option>
-                    <option value="1">Web Design</option>
-                    <option value="2">Photography</option>
-                    <option value="3">Branding</option>
-                    <option value="4">Illustration</option>
-                    <option value="5">Motion Design</option>
-                    <option value="6">Graphic Design</option>
-                  </select>
-                  <div tabIndex={0} className={style.selectView}>
-                    <span>Intrested For</span>
-                    <ul className={style.selectList}>
-                      <li
-                        className={`${style.selectOption} ${style.currentSelect} ${style.currentFocus}`}
-                      >
-                        Intrested For
-                      </li>
-                      <li className={`${style.selectOption}`}>Web Design</li>
-                      <li className={`${style.selectOption}`}>Photography</li>
-                      <li className={`${style.selectOption}`}>Branding</li>
-                      <li className={`${style.selectOption}`}>Illustration</li>
-                      <li className={`${style.selectOption}`}>Motion Design</li>
-                      <li className={`${style.selectOption}`}>
-                        Graphic Design
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className={style.inputContainer}>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Company Name:"
-                    autoComplete="off"
-                    className={`hover-target ${style.input}`}
-                  />
-                </div>
-                <div className={style.inputContainer}>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Website:"
-                    autoComplete="off"
-                    className={`hover-target ${style.input}`}
-                  />
-                </div>
-                <div className={style.msgContainer}>
-                  <textarea
-                    name="message"
-                    placeholder="Tell Us Everything *"
-                    className={`hover-target ${style.textArea}`}
-                  ></textarea>
-                </div>
-                <div className={style.msgContainer}>
-                  <button className={`hover-target ${style.submitBtn}`}>
-                    submit
-                  </button>
-                </div>
+                {components.map(({ id, type, input, select, textarea }) => {
+                  if (type === 'SELECT' && select) {
+                    const { name, placeholder, options } = select;
+
+                    return (
+                      <Select
+                        key={id}
+                        name={name}
+                        placeholder={placeholder}
+                        options={options}
+                      />
+                    );
+                  } else if (type === 'INPUT' && input) {
+                    const { name, placeholder, type } = input;
+
+                    return (
+                      <Input
+                        key={id}
+                        name={name}
+                        placeholder={placeholder}
+                        type={type}
+                      />
+                    );
+                  } else if (type === 'TEXTAREA' && textarea) {
+                    const { name, placeholder } = textarea;
+
+                    return (
+                      <Textarea
+                        key={id}
+                        name={name}
+                        placeholder={placeholder}
+                      />
+                    );
+                  } else if (type === 'BUTTON') {
+                    return <Button key={id} />;
+                  }
+                })}
               </div>
             </div>
             <div className={style.sideCard}>

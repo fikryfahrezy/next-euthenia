@@ -6,52 +6,10 @@ import SwiperCore, { Mousewheel, Scrollbar } from 'swiper/core';
 import { CusrorContext } from '../../context/Cursor';
 import Link from 'next/link';
 import style from './Home.module.css';
+import components from './components';
 
 // install Swiper modules
 SwiperCore.use([Mousewheel, Scrollbar]);
-
-const data = [
-  {
-    id: '1',
-    link: '/project',
-    title: 'The Battle',
-  },
-  {
-    id: '2',
-    link: '/projectone',
-    title: 'Dark Dream',
-  },
-  {
-    id: '3',
-    link: '/project',
-    title: "L'Etoile Fev",
-  },
-  {
-    id: '4',
-    link: '/projectone',
-    title: 'Temp',
-  },
-  {
-    id: '5',
-    link: '/project',
-    title: 'Kresios',
-  },
-  {
-    id: '6',
-    link: '/projectone',
-    title: 'Hospitality',
-  },
-  {
-    id: '7',
-    link: '/project',
-    title: 'Processors',
-  },
-  {
-    id: '8',
-    link: '/projectone',
-    title: 'Mrsoet',
-  },
-];
 
 const Home = () => {
   const { cursorRef, isMobile } = useContext(CusrorContext);
@@ -124,7 +82,7 @@ const Home = () => {
           touchStartPreventDefault={false}
           className={`${style.sliderWrapper} ${style.sliderSlide} ${style.sliderFreeMode}`}
         >
-          {data.map(({ id, link, title }, i) => (
+          {components.map(({ id, link, title }, i) => (
             <SwiperSlide
               key={id}
               className={`${style.sliderList} ${
@@ -154,7 +112,7 @@ const Home = () => {
         </div>
       </main>
       <ul className={style.bgPage}>
-        {data.map(({ id, title }, i) => (
+        {components.map(({ id, title }, i) => (
           <li
             key={id}
             className={`${style.bgList} ${i === sliderIndex ? style.show : ''}`}
@@ -165,7 +123,7 @@ const Home = () => {
               {String(i + 1).padStart(2, '0')}
             </div>
             <div className={style.bgMaxNum}>
-              {String(data.length).padStart(2, '0')}
+              {String(components.length).padStart(2, '0')}
             </div>
           </li>
         ))}

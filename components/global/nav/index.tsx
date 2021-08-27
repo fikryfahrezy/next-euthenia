@@ -1,63 +1,7 @@
 import { useState } from 'react';
 import style from './Nav.module.css';
 import Sublink from './sublink';
-
-const data = [
-  {
-    id: '1',
-    isSubLink: true,
-    link: '/',
-    title: 'work',
-    sublink: [
-      {
-        id: '1',
-        link: '/',
-        title: 'slider centered image',
-      },
-      {
-        id: '2',
-        link: '/',
-        title: 'slider centered image',
-      },
-      {
-        id: '3',
-        link: '/',
-        title: 'slider bottom title',
-      },
-      {
-        id: '4',
-        link: '/',
-        title: 'slice revealer',
-      },
-      {
-        id: '5',
-        link: '/work/masonry',
-        title: 'masonry version',
-      },
-    ],
-  },
-  {
-    id: '2',
-    isSubLink: false,
-    link: '/studio',
-    title: 'studio',
-    sublink: [],
-  },
-  {
-    id: '3',
-    isSubLink: false,
-    link: '/news',
-    title: 'news',
-    sublink: [],
-  },
-  {
-    id: '4',
-    isSubLink: false,
-    link: '/contact',
-    title: 'contact',
-    sublink: [],
-  },
-];
+import components from './components';
 
 type NavProps = {
   isActive: boolean;
@@ -71,7 +15,7 @@ const Nav = ({ isActive }: NavProps) => {
       <nav className={style.navContent}>
         <div className={style.currentPageNameShadow}>work</div>
         <ul className={style.navList}>
-          {data.map(({ id, isSubLink, link, title, sublink }, i) => (
+          {components.map(({ id, isSubLink, link, title, sublink }, i) => (
             <li
               key={id}
               className={`${style.navListItem} ${
