@@ -24,6 +24,10 @@ const Global = ({ children }: GlobalProps) => {
     setNavOpen(!isNavOpen);
   };
 
+  const setNav = function setNav(state: boolean) {
+    if (isNavOpen) setNavOpen(state);
+  };
+
   const mouseMove = function mouseMove(
     e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>,
   ) {
@@ -97,7 +101,12 @@ const Global = ({ children }: GlobalProps) => {
   return (
     <div className={style.overHide} onMouseMove={mouseMove}>
       <div className={style.animsition}>
-        <Header ref={header} toggleNav={toggleNav} isActive={isNavOpen} />
+        <Header
+          ref={header}
+          toggleNav={toggleNav}
+          setNav={setNav}
+          isNavOpen={isNavOpen}
+        />
         <Nav isActive={isNavOpen} />
         {children}
         <Socials />

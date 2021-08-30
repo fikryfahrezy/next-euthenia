@@ -1,0 +1,33 @@
+.list {
+  margin: 0;
+  padding-left: 1.5rem;
+  padding-bottom: 0;
+  list-style: none;
+}
+
+.listItem {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.1rem;
+}
+
+.listItem::before {
+  content: '\f10c';
+  height: 1.1rem;
+  display: inline-block;
+  margin-right: 15px;
+  font-family: 'FontAwesome';
+  font-size: 0.5rem;
+  line-height: 1.1rem;
+  text-rendering: auto;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+}
+
+.listAnchor {
+  padding-left: 0;
+  color: #fff;
+  font-weight: 400;
+  background-color: transparent;
+  transition: all 200ms linear;
+}

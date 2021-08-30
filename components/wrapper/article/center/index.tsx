@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import style from './Midarticle.module.css';
+import style from './Centerarticle.module.css';
 import FullArticleWrapper from '../full';
 
 type MidArticleWrapperProps = {

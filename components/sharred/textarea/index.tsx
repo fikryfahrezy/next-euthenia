@@ -7,13 +7,11 @@ type TextareaProps = {
 
 const Textarea = ({ name, placeholder }: TextareaProps) => {
   return (
-    <div className={style.msgContainer}>
-      <textarea
-        name={name}
-        placeholder={placeholder}
-        className={`hover-target ${style.textArea}`}
-      ></textarea>
-    </div>
+    <textarea
+      name={name}
+      placeholder={placeholder}
+      className={`hover-target ${style.textArea}`}
+    ></textarea>
   );
 };
 

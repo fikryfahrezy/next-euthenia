@@ -1,0 +1,18 @@
+.input {
+  position: relative;
+  width: 100%;
+  padding: 20px 20px;
+  margin: 0;
+  color: #fff;
+  background-color: #14151a;
+  font-weight: 400;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.7;
+  letter-spacing: 1px;
+  text-align: left;
+  border: none;
+  overflow: visible;
+  transition: all 250ms linear;
+  cursor: text;
+}

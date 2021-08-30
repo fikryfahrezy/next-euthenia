@@ -6,7 +6,7 @@ const FullparagraphWrapper = () => {
   return (
     <div className={style.centerText}>
       <ScrollAnimation animateIn="animate__fadeInUp" animateOnce={true}>
-        <p className={style.centerParagraf}>
+        <p className={style.centerParagraph}>
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
           ab illo inventore veritatis et quasi architecto beatae vitae dicta

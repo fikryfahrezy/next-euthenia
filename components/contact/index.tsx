@@ -1,8 +1,8 @@
 import FullArticleWrapper from '../wrapper/article/full';
-import Select from '../form/select';
-import Input from '../form/input';
-import Textarea from '../form/textarea';
-import Button from '../form/button';
+import Select from './form/select';
+import Input from './form/input';
+import Textarea from './form/textarea';
+import Button from './form/button';
 import style from './Contact.module.css';
 import components from './components';
 
@@ -13,7 +13,7 @@ const Contact = () => {
         <div className={style.container}>
           <div className={style.innerContainer}>
             <div className={style.formContainer}>
-              <div className={style.form}>
+              <form className={style.form}>
                 {components.map(({ id, type, input, select, textarea }) => {
                   if (type === 'SELECT' && select) {
                     const { name, placeholder, options } = select;
@@ -48,10 +48,10 @@ const Contact = () => {
                       />
                     );
                   } else if (type === 'BUTTON') {
-                    return <Button key={id} />;
+                    return <Button key={id} text="submit" />;
                   }
                 })}
-              </div>
+              </form>
             </div>
             <div className={style.sideCard}>
               <div className={style.card}>

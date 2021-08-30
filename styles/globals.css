@@ -25,3 +25,19 @@ a {
   background-color: transparent;
   text-decoration: none;
 }
+
+mark {
+  padding: 0.2em;
+  color: #212121;
+  background-color: #fcf8e3;
+}
+
+small {
+  font-size: 80%;
+  font-weight: 400;
+}
+
+b,
+strong {
+  font-weight: bolder;
+}

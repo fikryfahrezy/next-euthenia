@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import MidArticleWrapper from '../wrapper/article/mid';
+import CenterArticleWrapper from '../wrapper/article/center';
 import FullimgWrapper from '../wrapper/fullimg';
 import style from './Studio.module.css';
 
 const Studio = () => {
   return (
-    <MidArticleWrapper>
+    <CenterArticleWrapper>
       <FullimgWrapper
         src="/img/studio.jpg"
         width="1094"
@@ -77,7 +77,7 @@ const Studio = () => {
           <h6 className={style.quoteSrc}>Thomas J. Watson</h6>
         </blockquote>
       </div>
-    </MidArticleWrapper>
+    </CenterArticleWrapper>
   );
 };
 

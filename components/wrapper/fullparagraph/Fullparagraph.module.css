@@ -16,7 +16,7 @@
   }
 }
 
-.centerParagraf {
+.centerParagraph {
   margin-bottom: 0;
   padding-bottom: 0;
   font-size: 1.15rem;
@@ -24,7 +24,7 @@
 }
 
 @media (max-width: 575px) {
-  .centerParagraf {
+  .centerParagraph {
     font-size: 1.05rem;
   }
 }

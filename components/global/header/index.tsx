@@ -1,18 +1,28 @@
-import { forwardRef } from 'react';
+import { useRef, forwardRef, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Link from 'next/link';
 import style from './Header.module.css';
 
 type HeaderProps = {
   toggleNav: () => void;
-  isActive: boolean;
+  setNav: (state: boolean) => void;
+  isNavOpen: boolean;
 };
 
 const Header = forwardRef<HTMLElement | null, HeaderProps>(
-  ({ toggleNav, isActive }, ref) => {
+  ({ toggleNav, isNavOpen, setNav }, ref) => {
+    const router = useRouter();
+    const setNavRef = useRef<typeof setNav>(() => {});
+    setNavRef.current = setNav;
+
     const navButtonClick = function navButtonClick() {
       toggleNav();
     };
+
+    useEffect(() => {
+      setNavRef.current(false);
+    }, [router]);
 
     return (
       <header className={style.cdHeader} ref={ref}>
@@ -34,7 +44,7 @@ const Header = forwardRef<HTMLElement | null, HeaderProps>(
           <div className={style.navButWrap} onClick={navButtonClick}>
             <div
               className={`hover-target ${style.menuIcon} ${
-                isActive ? style.navActive : ''
+                isNavOpen ? style.navActive : ''
               }`}
             >
               <span
