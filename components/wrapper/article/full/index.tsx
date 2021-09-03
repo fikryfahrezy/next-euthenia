@@ -3,16 +3,20 @@ import ArticleWrapper from '..';
 import style from './Fullarticle.module.css';
 
 type FullArticleWrapperProps = {
-  styleProp?: CSSProperties;
+  title: string;
+  highlight: string;
   children: ReactNode;
+  styleProp?: CSSProperties;
 };
 
 const FullArticleWrapper = ({
-  styleProp,
+  title,
+  highlight,
   children,
+  styleProp,
 }: FullArticleWrapperProps) => {
   return (
-    <ArticleWrapper>
+    <ArticleWrapper title={title} highlight={highlight}>
       <main className={style.mainContainer} style={styleProp}>
         {children}
       </main>

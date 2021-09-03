@@ -8,12 +8,32 @@ type SelectProps = {
   options: { id: string; value: string; text: string }[];
 };
 
+type OptionProps = {
+  value: string;
+  text: string;
+  isActive: boolean;
+  onClick: (value: string, text: string) => void;
+};
+
 type ACTIONTYPE =
   | { type: 'TOGGLE'; payload: boolean }
   | {
       type: 'SELECT';
       payload: { open: boolean; selection: string; text: string };
     };
+
+const Option = ({ isActive, value, text, onClick }: OptionProps) => {
+  return (
+    <li
+      className={`hover-target ${style.selectOption} ${
+        isActive ? `${style.currentSelect} ${style.currentFocus}` : ''
+      }`}
+      onClick={() => onClick(value, text)}
+    >
+      {text}
+    </li>
+  );
+};
 
 const initialState = {
   isOpen: false,
@@ -52,20 +72,19 @@ const Select = ({ name, placeholder, options }: SelectProps) => {
   ) {
     const target = e.target as HTMLElement;
 
-    if (target.tagName === 'LI') {
-      dispatch({
-        type: 'SELECT',
-        payload: {
-          open: !isOpen,
-          selection: target.dataset.value ?? '',
-          text: target.textContent ?? '',
-        },
-      });
+    if (target.tagName === 'DIV')
+      dispatch({ type: 'TOGGLE', payload: !isOpen });
+  };
 
-      return;
-    }
-
-    dispatch({ type: 'TOGGLE', payload: !isOpen });
+  const optionClick = function optionClick(value: string, text: string) {
+    dispatch({
+      type: 'SELECT',
+      payload: {
+        open: !isOpen,
+        selection: value,
+        text: text,
+      },
+    });
   };
 
   useEffect(() => {
@@ -116,17 +135,13 @@ const Select = ({ name, placeholder, options }: SelectProps) => {
         {currentText || placeholder}
         <ul className={style.selectList}>
           {options.map(({ id, text, value }) => (
-            <li
+            <Option
               key={id}
-              className={`hover-target ${style.selectOption} ${
-                value === currentSelection
-                  ? `${style.currentSelect} ${style.currentFocus}`
-                  : ''
-              }`}
-              data-value={value}
-            >
-              {text}
-            </li>
+              text={text}
+              value={value}
+              isActive={value === currentSelection}
+              onClick={optionClick}
+            />
           ))}
         </ul>
       </div>

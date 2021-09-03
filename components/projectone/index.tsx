@@ -8,7 +8,10 @@ import style from './Projectone.module.css';
 
 const ProjectOne = () => {
   return (
-    <CenterArticleWrapper>
+    <CenterArticleWrapper
+      title="LEtoile Feb"
+      highlight="fashion, art direction"
+    >
       <HalfImgWrapper
         leftImg={{
           src: '/img/3.jpg',

@@ -5,7 +5,10 @@ import style from './Studio.module.css';
 
 const Studio = () => {
   return (
-    <CenterArticleWrapper>
+    <CenterArticleWrapper
+      title="Design Studio"
+      highlight="we build great brands"
+    >
       <FullimgWrapper
         src="/img/studio.jpg"
         width="1094"

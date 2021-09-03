@@ -24,4 +24,14 @@ export const checkIsMobile = function checkIsMobile() {
   return check;
 };
 
+export const checkIsTablet = function checkIsTabler() {
+  const userAgent = navigator.userAgent.toLowerCase();
+  const isTablet =
+    /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(
+      userAgent,
+    );
+
+  return isTablet;
+};
+
 export default checkIsMobile;

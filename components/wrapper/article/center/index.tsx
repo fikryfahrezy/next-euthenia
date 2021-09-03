@@ -1,14 +1,20 @@
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 import style from './Centerarticle.module.css';
 import FullArticleWrapper from '../full';
 
-type MidArticleWrapperProps = {
+type CenterArticleWrapperProps = {
+  title: string;
+  highlight: string;
   children: ReactNode;
 };
 
-const MidArticleWrapper = ({ children }: MidArticleWrapperProps) => {
+const CenterArticleWrapper = ({
+  title,
+  highlight,
+  children,
+}: CenterArticleWrapperProps) => {
   return (
-    <FullArticleWrapper>
+    <FullArticleWrapper title={title} highlight={highlight}>
       <div className={style.pageContainer}>
         <div className={style.innerPageContainer}>{children}</div>
       </div>
@@ -16,4 +22,4 @@ const MidArticleWrapper = ({ children }: MidArticleWrapperProps) => {
   );
 };
 
-export default MidArticleWrapper;
+export default CenterArticleWrapper;

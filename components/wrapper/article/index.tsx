@@ -5,10 +5,16 @@ import { useEffect, useState, useRef } from 'react';
 import style from './Article.module.css';
 
 type ArticleWrapperProps = {
+  title: string;
+  highlight: string;
   children: ReactNode;
 };
 
-const ArticleWrapper = ({ children }: ArticleWrapperProps) => {
+const ArticleWrapper = ({
+  children,
+  highlight = '',
+  title = '',
+}: ArticleWrapperProps) => {
   const [isArrowActive, setArrowActive] = useState(false);
   const isMounted = useRef(false);
   const background = useRef<HTMLDivElement>(null);
@@ -62,16 +68,16 @@ const ArticleWrapper = ({ children }: ArticleWrapperProps) => {
   return (
     <>
       <div className={style.background} ref={background}>
-        The Battle
+        {title}
       </div>
       <div className={style.headerContainer}>
         <div className={style.innerHeaderContainer}>
           <div className={style.pageHeader} ref={header}>
             <div className={style.titleContainer}>
-              <h1 className={style.pageTitle}>The Battle</h1>
+              <h1 className={style.pageTitle}>{title}</h1>
             </div>
             <div className={style.titleHighlight}>
-              <p className={style.highlightText}>fashion, photography</p>
+              <p className={style.highlightText}>{highlight}</p>
             </div>
           </div>
         </div>
@@ -84,7 +90,7 @@ const ArticleWrapper = ({ children }: ArticleWrapperProps) => {
           offset={0}
           className={style.footerBg}
         >
-          The Battle
+          {title}
         </ScrollAnimation>
         <ScrollAnimation
           animateIn="animate__fadeInUp"

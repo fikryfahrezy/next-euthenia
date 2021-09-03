@@ -1,40 +1,20 @@
 import style from './Socials.module.css';
+import components from './components';
 
 const Socials = () => {
   return (
     <div className={style.socials}>
-      <a
-        href="https://twitter.com"
-        rel="noreferrer"
-        target="_blank"
-        className={`hover-target ${style.social}`}
-      >
-        tw
-      </a>
-      <a
-        href="https://twitter.com"
-        rel="noreferrer"
-        target="_blank"
-        className={`hover-target ${style.social}`}
-      >
-        tw
-      </a>
-      <a
-        href="https://twitter.com"
-        rel="noreferrer"
-        target="_blank"
-        className={`hover-target ${style.social}`}
-      >
-        tw
-      </a>
-      <a
-        href="https://twitter.com"
-        rel="noreferrer"
-        target="_blank"
-        className={`hover-target ${style.social}`}
-      >
-        tw
-      </a>
+      {components.map(({ id, link, title }) => (
+        <a
+          key={id}
+          href={link}
+          rel="noreferrer"
+          target="_blank"
+          className={`hover-target ${style.social}`}
+        >
+          {title}
+        </a>
+      ))}
     </div>
   );
 };

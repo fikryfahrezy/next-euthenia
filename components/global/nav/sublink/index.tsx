@@ -7,9 +7,16 @@ type SublinkProps = {
   link: string;
   title: string;
   sublink: { id: string; link: string; title: string }[];
+  childLink: string;
 };
 
-const Sublink = ({ isSublink, link, title, sublink }: SublinkProps) => {
+const Sublink = ({
+  isSublink,
+  link,
+  title,
+  sublink,
+  childLink,
+}: SublinkProps) => {
   const [linkActive] = useState(0);
   const [isCollapse, setCollapse] = useState(true);
   const subLinkCont = useRef<HTMLUListElement>(null);
@@ -50,11 +57,11 @@ const Sublink = ({ isSublink, link, title, sublink }: SublinkProps) => {
           className={`${style.subLink} ${isCollapse ? style.collapse : ''}`}
           ref={subLinkCont}
         >
-          {sublink.map(({ id, title, link }, i) => (
+          {sublink.map(({ id, title, link }) => (
             <li
               key={id}
               className={`${style.subLinkList} ${
-                i === linkActive ? style.activeSubList : ''
+                link === childLink ? style.activeSubList : ''
               }`}
             >
               <Link href={link}>

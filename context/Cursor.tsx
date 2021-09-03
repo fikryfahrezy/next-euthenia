@@ -1,6 +1,6 @@
 import type { ReactNode, RefObject } from 'react';
 import { useState, useEffect, useRef, createContext } from 'react';
-import { checkIsMobile } from '../utils';
+import { checkIsMobile, checkIsTablet } from '../utils';
 
 type CursorProps = {
   children: ReactNode;
@@ -23,7 +23,7 @@ const CursorState = function CursorState({ children }: CursorProps) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    setIsMobile(checkIsMobile());
+    setIsMobile(checkIsMobile() || checkIsTablet());
   }, []);
 
   return (

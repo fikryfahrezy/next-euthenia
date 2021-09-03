@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import MidArticleWrapper from '../wrapper/article/center';
+import CenterArticleWrapper from '../wrapper/article/center';
 import HalfImgWrapper from '../wrapper/halfimg';
 import FullvideoWrapper from '../wrapper/fullvideo';
 import InputComp from '../sharred/input';
@@ -21,7 +21,10 @@ import {
 
 const Post = () => {
   return (
-    <MidArticleWrapper>
+    <CenterArticleWrapper
+      title="Sleep, code, travel."
+      highlight="by Maria Kulis, 19.01.2019"
+    >
       <article className={style.article}>
         <div className={style.container}>
           <Image
@@ -258,7 +261,7 @@ const Post = () => {
           <List list={archives} />
         </div>
       </aside>
-    </MidArticleWrapper>
+    </CenterArticleWrapper>
   );
 };
 

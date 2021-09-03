@@ -7,22 +7,22 @@ const components = [
     sublink: [
       {
         id: '1',
-        link: '/',
-        title: 'slider centered image',
+        link: '/work/sct',
+        title: 'slider centered title',
       },
       {
         id: '2',
-        link: '/',
+        link: '/work/sci',
         title: 'slider centered image',
       },
       {
         id: '3',
-        link: '/',
+        link: '/work/sbt',
         title: 'slider bottom title',
       },
       {
         id: '4',
-        link: '/',
+        link: '/work/revealer',
         title: 'slice revealer',
       },
       {

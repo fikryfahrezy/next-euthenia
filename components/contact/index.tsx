@@ -8,7 +8,11 @@ import components from './components';
 
 const Contact = () => {
   return (
-    <FullArticleWrapper styleProp={{ paddingBottom: '0' }}>
+    <FullArticleWrapper
+      title="Say Hello"
+      highlight="get in touch"
+      styleProp={{ paddingBottom: '0' }}
+    >
       <div className={style.mainContainer}>
         <div className={style.container}>
           <div className={style.innerContainer}>

@@ -6,7 +6,7 @@ import style from './Project.module.css';
 
 const Project = () => {
   return (
-    <FullArticleWrapper>
+    <FullArticleWrapper title="The Battle" highlight="fashion, photography">
       <div className={style.pageContainer}>
         <div className={style.innerPageContainer}>
           <FullimgWrapper

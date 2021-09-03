@@ -10,7 +10,7 @@ const News = () => {
   const [itemIndex] = useState(0);
 
   return (
-    <CenterArticleWrapper>
+    <CenterArticleWrapper title="Our Stories" highlight="full of stuff">
       <div style={{ width: '100%' }}>
         <ul className={style.itemList}>
           {components.map(({ id, title, link, description, date }, i) => (

@@ -5,3 +5,15 @@
   padding-bottom: 140px;
   overflow: hidden;
 }
+
+@media (max-width: 1199px) {
+  .mainContainer {
+    padding-bottom: 110px;
+  }
+}
+
+@media (max-width: 991px) {
+  .mainContainer {
+    padding-bottom: 90px;
+  }
+}

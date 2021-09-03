@@ -1,0 +1,29 @@
+.pageContainer {
+  width: 100%;
+}
+
+.revealerContainer {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  margin-bottom: 4rem;
+  padding-right: 15px;
+  padding-left: 15px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .revealerContainer {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+}
+
+.revealerAnchor {
+  cursor: url('/img/more.png') 17 17, pointer;
+}
+
+.galleryImg {
+  width: 100%;
+  margin: 0;
+}

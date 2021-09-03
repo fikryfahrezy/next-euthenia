@@ -17,7 +17,7 @@ const components = [
   {
     id: '4',
     link: '/projectone',
-    title: 'Tempo',
+    title: 'Temp',
   },
   {
     id: '5',
