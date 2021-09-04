@@ -1,4 +1,4 @@
-const components = [
+export const components = [
   {
     id: '1',
     img: '/img/2.jpg',
@@ -78,6 +78,29 @@ const components = [
     text: 'photography',
     title: 'Dark Dream',
     tag: 'photo',
+  },
+];
+
+export const filters = [
+  {
+    id: '1',
+    filterStr: '',
+    text: 'all',
+  },
+  {
+    id: '2',
+    filterStr: 'branding',
+    text: 'branding',
+  },
+  {
+    id: '3',
+    filterStr: 'photo',
+    text: 'photo',
+  },
+  {
+    id: '4',
+    filterStr: 'motion',
+    text: 'motion',
   },
 ];
 
